@@ -1,19 +1,15 @@
 module.exports = {
   apps : [{
-    script: 'index.js',
-    watch: '.'
-  }, {
-    script: './service-worker/',
-    watch: ['./service-worker']
+    script: 'npm start',
   }],
 
   deploy : {
     production : {
-      user : 'ubuntu@192.168.1.30',
+      user : 'ubuntu',
       host : '192.168.1.30',
       ref  : 'origin/master',
       repo : 'git@github.com:hapo-quannt/testing.git',
-      path : '/home/unbutu',
+      path : '/home/ubuntu',
       'pre-deploy-local': '',
       'post-deploy' : 'source ~/.nvm/nvm.sh && npm install && npm run build && pm2 reload ecosystem.config.js --env production',
       'pre-setup': '',
